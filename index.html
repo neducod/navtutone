@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Navbar Tut</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        .navbar{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #fff;
+            border-bottom: 1px solid #fff;
+        }
+        .logo{
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+        .nav-links{
+            list-style: none;
+            display: flex;
+            gap: 2rem;
+        }.nav-links li a{
+            text-decoration: none;
+            color: #333;
+        }
+        .hamburger{
+            display: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        @media (max-width: 768px) {
+            .nav-links{
+                display: none;
+                flex-direction: column;
+                background-color: #f9f9f9;
+                position: absolute;
+                top: 70px;
+                right: 20px;
+                width: 200px;
+                padding: 1rem;
+                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            }
+            .nav-links .show{
+                display: flex;
+            }
+            .hamburger{
+                display: block;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="logo">My Site</div>
+        <ul class="nav-links" id="nav-links">
+            <li><a href="#">Home</a></li>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Contact</a></li>
+            <li><a href="#">Services</a></li>
+        </ul>
+        <div class="hamburger" id="hamburger">   ☰  </div>
+    </nav>
+</body>
+<script>
+    const hamburger = document.getElementById('hamburger');
+    const navLinks = document.getElementById('nav-links');
+
+    hamburger.addEventListener('click', () => {
+        navLinks.classList.toggle('show');
+    })
+</script>
+</html>
